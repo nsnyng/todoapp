@@ -1,0 +1,78 @@
+ul, li, input {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  font-family: Hack;
+  font-size: 20px;
+}
+header {
+  height: 150px;
+  color: rgb(229, 172, 98)
+}
+h1 {
+  font-size: 3rem;
+}
+body {
+  background-color: rgb(238, 238, 227);
+}
+.todo-input {
+  display: flex;
+  flex-direction: row;
+}
+.todo-list {
+  padding: 40px;
+}
+#todoInput {
+  flex: 1;
+  border: none;
+  width: inherit;
+  height: 50px;
+  padding-left: 20px;
+  outline: none;
+}
+#addButton {
+  flex: 0.1;
+  border: none;
+}
+#addButton:hover {
+  background-color: rgb(229, 172, 98);
+}
+#addButton:focus {
+  outline-color: rgb(229, 172, 98);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 1000px;
+  height: 700px;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  width: inherit;
+  height: inherit;
+  background-color: whitesmoke;
+
+}
+li {
+  display: flex;
+  /* align-items: center; */
+  list-style: none;
+  height: 30px;
+  column-gap: 10px;
+}
+label {
+  font-size: 1.2rem;
+}
+ul {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+input[type="checkbox"] {
+  inline-size: 30px;
+}

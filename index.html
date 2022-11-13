@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>todo app</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <h1>To do list</h1>
+    </header>
+    <main>
+      <div class="todo-input">
+        <input type="text" id="todoInput" placeholder="Write down your to-dos today(maximum 40 character)." size="60"
+          maxlength="40" required>
+        <input type="button" id="addButton" value="Add">
+      </div>
+      <div class="todo-list">
+        <ul id="todoListView"></ul>
+      </div>
+    </main>
+  </div>
+  <script src="./js/todo.js"></script>
+</body>
+</html>
