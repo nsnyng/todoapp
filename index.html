@@ -14,13 +14,20 @@
       <div class="todo-input">
         <input type="text" id="todoInput" placeholder="Write down your to-dos today(maximum 40 character)." size="60"
           maxlength="40" required>
-        <input type="button" id="addButton" value="Add">
+        <input type="button" id="addButton" class="button" value="Add">
       </div>
       <div class="todo-list">
         <ul id="todoListView"></ul>
       </div>
     </main>
+    <footer>
+      <button id="completionButton" class="button">Completion</button>
+      <span id="todoCount"></span>
+    </footer>
   </div>
   <script src="./js/todo.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', todoListRender);
+  </script>
 </body>
 </html>
