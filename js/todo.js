@@ -1,8 +1,8 @@
-const todoList = []; // [{id: number, note: string, isComplete: boolean}]
-const checkList = [];
-
 const todoCountRender = () => {
-  const count = todoList.filter((todo) => todo.isComplete === true).length;
+  const todoList = tdls.get();
+
+  const count = todoList ? todoList.filter((todo) => todo.isComplete === true).length : 0;
+
   const $todoCount = document.getElementById('todoCount');
   const countTextNode = document.createTextNode(`The total number of completions is ${count}.`)
 
@@ -16,7 +16,9 @@ const todoListRender = () => {
 
   $todoListView.innerHTML = '';
 
-  todoList.forEach(list => {
+  const todoList = tdls.get();
+
+  todoList?.forEach(list => {
     const { id, note, isComplete } = { ...list };
 
     if (!isComplete) {
@@ -43,14 +45,17 @@ const todoListRender = () => {
   todoCountRender();
 };
 
+
 const addTodo = (e, target) => {
   if (!target.value) return 0;
 
-  const id = todoList.length === 0 ? 1 : todoList[todoList.length - 1].id + 1;
+  const todoList = tdls.get();
   const note = target.value;
+  
+  let id = 1;
+  if(todoList) id = todoList[todoList.length - 1].id + 1;
 
-  todoList.push({ id, note, isComplete: false });
-
+  tdls.set(id, note);
   target.value = '';
 };
 
@@ -65,9 +70,7 @@ const todoCompletion = () => {
   Array.prototype.forEach.call(completeTodos, (todo) => {
     const id = todo.firstElementChild.dataset.id;
 
-    todoList.forEach((todo) => {
-      if(todo.id === +id) todo.isComplete = true;
-    });
+    tdls.completion(id);
   });
 };
 
